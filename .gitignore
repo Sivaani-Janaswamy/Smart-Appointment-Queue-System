@@ -1,0 +1,69 @@
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# =========================
+# Build outputs
+# =========================
+dist/
+build/
+
+# =========================
+# Vite / React
+# =========================
+.vite/
+.cache/
+.eslintcache
+
+# =========================
+# Backend specific
+# =========================
+backend/node_modules/
+backend/dist/
+backend/build/
+
+# =========================
+# Frontend specific
+# =========================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+
+# =========================
+# Testing
+# =========================
+coverage/
+
+# =========================
+# Misc
+# =========================
+*.tmp
+*.swp
+*.bak
