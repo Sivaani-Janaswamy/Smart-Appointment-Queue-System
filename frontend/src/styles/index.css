@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-background text-textPrimary;
+  @apply bg-deep-space text-light-grey;
   font-family: 'Inter', sans-serif;
 }

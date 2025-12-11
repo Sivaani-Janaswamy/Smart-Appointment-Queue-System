@@ -47,7 +47,7 @@ const JoinQueue = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
     >
-      <Card className="w-full max-w-2xl mx-auto p-8"> {/* Added p-8 for more internal spacing */}
+      <Card className="w-full max-w-2xl mx-auto p-8">
           <h2 className="text-4xl font-heading font-bold text-ghost-white text-center mb-4 drop-shadow-[0_0_8px_rgba(240,0,184,0.7)]">
             JOIN A QUEUE
           </h2>
@@ -55,7 +55,7 @@ const JoinQueue = () => {
             Select a service below to get your digital token.
           </p>
           {error && <p className="text-electric-magenta text-center mb-4 font-body">{error}</p>}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6"> {/* Increased gap */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {queues.map(queue => (
                   <Button
                       key={queue._id}

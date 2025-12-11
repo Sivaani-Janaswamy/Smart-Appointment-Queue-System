@@ -36,7 +36,7 @@ const AgentControlPanel = ({ queues }) => {
     };
 
     return (
-        <Card className="mb-8 p-6"> {/* Use Card component for consistent styling */}
+        <Card className="mb-8 p-6">
             <h2 className="text-2xl font-heading font-bold text-ghost-white mb-4 drop-shadow-[0_0_5px_rgba(240,0,184,0.6)]">
               AGENT CONTROLS
             </h2>
@@ -48,9 +48,9 @@ const AgentControlPanel = ({ queues }) => {
                                text-light-grey placeholder-medium-grey focus:outline-none focus:ring-2
                                focus:ring-electric-magenta focus:ring-offset-1 focus:ring-offset-deep-space"
                 >
-                    <option value="" className="bg-deep-space">-- SELECT A QUEUE TO CALL FROM --</option> {/* Styled option */}
+                    <option value="" className="bg-deep-space">-- SELECT A QUEUE TO CALL FROM --</option>
                     {queues.map(q => (
-                        <option key={q._id} value={q._id} className="bg-deep-space">{q.name.toUpperCase()}</option> {/* Styled option */}
+                        <option key={q._id} value={q._id} className="bg-deep-space">{q.name.toUpperCase()}</option>
                     ))}
                 </select>
                 <Button onClick={() => handleAction('call-next', { queueId: selectedQueue })} disabled={loading || !selectedQueue}>

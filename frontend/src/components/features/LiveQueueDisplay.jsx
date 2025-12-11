@@ -99,12 +99,12 @@ const LiveQueueDisplay = ({ queue }) => {
         transition={{ duration: 0.5 }}
         className="w-full max-w-sm flex-shrink-0"
     >
-        <Card className="p-6 h-full flex flex-col"> {/* Added flex-col for internal layout */}
+        <Card className="p-6 h-full flex flex-col">
           <h3 className="text-3xl font-heading font-bold text-ghost-white text-center mb-6 drop-shadow-[0_0_8px_rgba(240,0,184,0.7)]">
             {queue.name.toUpperCase()}
           </h3>
           
-          <div className="mb-6 flex-grow"> {/* flex-grow to push waiting list down */}
+          <div className="mb-6 flex-grow">
             <h4 className="font-heading text-light-grey mb-2 text-center text-lg">SERVING NOW</h4>
             {servingToken ? (
               <TokenCard token={servingToken} isServing />
@@ -117,7 +117,7 @@ const LiveQueueDisplay = ({ queue }) => {
 
           <div>
             <h4 className="font-heading text-light-grey mb-2 text-center text-lg">WAITING (<span className="text-plasma-green">{tokens.length}</span>)</h4>
-            <div className="h-64 overflow-y-auto pr-2 custom-scrollbar"> {/* Added custom-scrollbar */}
+            <div className="h-64 overflow-y-auto pr-2 custom-scrollbar">
                 <AnimatePresence>
                   {tokens.length > 0 ? (
                     tokens.map((token) => <TokenCard key={token._id} token={token} />)

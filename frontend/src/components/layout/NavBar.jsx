@@ -39,14 +39,14 @@ const NavBar = () => {
                  shadow-xl shadow-cyber-purple/20 py-3" // Adjusted padding here for overall height
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-12"> {/* Adjusted height */}
+        <div className="flex items-center justify-between h-12">
           <div className="flex-shrink-0">
             <Link to="/dashboard" className="text-3xl font-heading font-bold text-electric-magenta
                                           drop-shadow-[0_0_5px_rgba(240,0,184,0.7)]">
               SMART QUEUE
             </Link>
           </div>
-          <div className="flex items-center space-x-6"> {/* Increased space-x */}
+          <div className="flex items-center space-x-6">
             <span className="text-light-grey font-body text-md">Welcome, {user?.name || 'Guest'}</span>
             {user?.role === 'admin' && (
               <Link to="/admin" className="text-light-grey hover:text-electric-magenta font-body text-md transition-colors duration-200">

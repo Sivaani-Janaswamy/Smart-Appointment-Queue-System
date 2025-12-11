@@ -44,11 +44,11 @@ const Scanner = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.5 }}
     >
-      <Card className="w-full max-w-md mx-auto p-8 text-center"> {/* Added p-8 */}
+      <Card className="w-full max-w-md mx-auto p-8 text-center">
         <h2 className="text-3xl font-heading font-bold text-ghost-white mb-6 drop-shadow-[0_0_8px_rgba(240,0,184,0.7)]">
           SCAN TOKEN QR CODE
         </h2>
-        <div className="relative w-full h-64 rounded-lg overflow-hidden border-2 border-cyber-purple/70 shadow-lg shadow-electric-magenta/30 flex items-center justify-center"> {/* Styled scanner frame */}
+        <div className="relative w-full h-64 rounded-lg overflow-hidden border-2 border-cyber-purple/70 shadow-lg shadow-electric-magenta/30 flex items-center justify-center">
           <QrReader
             delay={300}
             onError={handleError}

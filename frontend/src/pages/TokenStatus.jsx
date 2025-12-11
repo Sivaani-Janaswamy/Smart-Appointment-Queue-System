@@ -89,7 +89,7 @@ const TokenStatus = () => {
       </motion.div>
       
       <div className="relative p-4 rounded-xl border border-cyber-purple/50 bg-deep-space/40 backdrop-blur-sm
-                   shadow-xl shadow-cyber-purple/20 mb-6"> {/* Glassmorphism for status */}
+                   shadow-xl shadow-cyber-purple/20 mb-6">
           <h3 className="text-ghost-white font-heading text-3xl font-bold mb-2">{getStatusMessage()}</h3>
           {token.status === 'waiting' && (
               <p className="text-lg text-light-grey font-body">
@@ -103,7 +103,7 @@ const TokenStatus = () => {
           )}
       </div>
       <div className="mt-8 flex flex-col items-center relative p-4 rounded-xl border border-cyber-purple/50 bg-deep-space/40 backdrop-blur-sm
-                   shadow-lg shadow-cyber-purple/20"> {/* Glassmorphism for QR */}
+                   shadow-lg shadow-cyber-purple/20">
         <QRCodeSVG value={window.location.href} size={128} bgColor="transparent" fgColor={currentTheme === 'dark' ? '#F9F9F9' : '#1F2937'} /> {/* Using ghost-white hex */}
         <p className="mt-2 text-sm text-medium-grey font-body">SCAN TO CHECK STATUS</p>
       </div>

@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         transition={{ delay: 0.2, duration: 0.5 }}
         className="flex-1 pt-16" // Adjusted padding for fixed NavBar
       >
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8"> {/* Added px-4 */}
+        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <Outlet />
         </div>
       </motion.main>

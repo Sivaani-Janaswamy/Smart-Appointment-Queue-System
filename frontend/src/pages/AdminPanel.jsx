@@ -10,7 +10,7 @@ import { useThemeStore } from '../store/themeStore'; // Corrected import path
 
 // Helper component for Admin sections to ensure consistent styling
 const AdminSection = ({ title, children }) => (
-    <Card className="mb-8 p-6"> {/* Use Card for consistent styling */}
+    <Card className="mb-8 p-6">
         <h2 className="text-2xl font-heading font-bold text-ghost-white mb-4 border-b border-cyber-purple/50 pb-2 drop-shadow-[0_0_5px_rgba(122,0,240,0.6)]">
           {title.toUpperCase()}
         </h2>
@@ -120,3 +120,5 @@ const AdminPanel = () => {
     </motion.div>
   );
 };
+
+export default AdminPanel;

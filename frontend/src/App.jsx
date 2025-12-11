@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
+  Outlet,
 } from 'react-router-dom';
 import { useAuthStore } from './store/authStore';
 import { useThemeStore } from './store/themeStore';
@@ -21,6 +22,23 @@ import TokenStatus from './pages/TokenStatus';
 import Scanner from './pages/Scanner';
 import NotFound from './pages/NotFound';
 
+// --- New Components for Routing ---
+
+// Redirects from the root path based on auth status
+const RootRedirect = () => {
+  const { isAuthenticated } = useAuthStore();
+  // If authenticated, go to the main app. If not, go to login.
+  return isAuthenticated ? <Navigate to="/app/join-queue" replace /> : <Navigate to="/login" replace />;
+};
+
+// Protects routes that should only be accessible to unauthenticated users (e.g., login page)
+const PublicRoute = ({ children }) => {
+  const { isAuthenticated } = useAuthStore();
+  // If user is logged in, redirect them away from the login page.
+  return isAuthenticated ? <Navigate to="/app/join-queue" replace /> : children;
+};
+
+// --- Main ProtectedRoute ---
 const ProtectedRoute = ({ children, adminOnly = false }) => {
   const { isAuthenticated, user } = useAuthStore();
 
@@ -29,31 +47,43 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   }
 
   if (adminOnly && user?.role !== 'admin') {
-    return <Navigate to="/dashboard" replace />;
+    // If a non-admin tries to access an admin route, send them to their dashboard
+    return <Navigate to="/app/dashboard" replace />;
   }
 
   return children;
 };
 
+
+// --- New Router Configuration ---
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <PublicLayout />,
-    children: [
-      { index: true, element: <JoinQueue /> },
-      { path: 'token/:id', element: <TokenStatus /> },
-      { path: 'login', element: <LoginPage /> },
-      { path: 'scanner', element: <Scanner /> },
-    ],
+    element: <RootRedirect />,
   },
   {
-    path: '/dashboard',
+    path: '/login',
+    element: (
+      <PublicRoute>
+        <PublicLayout>
+          <LoginPage />
+        </PublicLayout>
+      </PublicRoute>
+    ),
+  },
+  {
+    path: '/app',
     element: (
       <ProtectedRoute>
         <DashboardLayout />
       </ProtectedRoute>
     ),
-    children: [{ index: true, element: <Dashboard /> }],
+    children: [
+      { path: 'join-queue', element: <JoinQueue /> },
+      { path: 'dashboard', element: <Dashboard /> },
+      { path: 'scanner', element: <Scanner /> },
+      { path: 'token/:id', element: <TokenStatus /> },
+    ],
   },
   {
     path: '/admin',
@@ -62,13 +92,16 @@ const router = createBrowserRouter([
         <DashboardLayout />
       </ProtectedRoute>
     ),
-    children: [{ index: true, element: <AdminPanel /> }],
+    children: [
+      { index: true, element: <AdminPanel /> },
+    ],
   },
   {
     path: '*',
     element: <NotFound />,
   },
 ]);
+
 
 function App() {
   React.useEffect(() => {

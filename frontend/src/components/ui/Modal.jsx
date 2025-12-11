@@ -24,12 +24,12 @@ const Modal = ({ isOpen, onClose, title, children }) => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-heading text-ghost-white">{title}</h2> {/* Updated title style */}
+              <h2 className="text-2xl font-heading text-ghost-white">{title}</h2>
               <button
                 onClick={onClose}
                 className="text-medium-grey hover:text-ghost-white transition-colors duration-200"
               >
-                <IoClose size={28} /> {/* Slightly larger close icon */}
+                <IoClose size={28} />
               </button>
             </div>
             {children}
