@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# Smart-Appointment-Queue-System
-The Smart Appointment &amp; Queue Management System is a full-stack healthcare solution that digitizes the appointment booking process and eliminating long patient queues. The system provides mobile applications (Flutter) for patients and doctors, along with a secure backend for data management and communication.
-=======
 # Smart Queue Management System (SQMS)
 
 A full-stack, production-ready Smart Queue Management System designed to eliminate physical queues and optimize service delivery. This project demonstrates a modern, scalable architecture with a focus on real-time features, data analytics, and a seamless user experience.
@@ -151,4 +147,3 @@ This project is configured for easy deployment on Vercel and Render.
 ## 📄 License
 
 This project is licensed under the MIT License.
->>>>>>> 04e25e2 (Remove ignored files from tracking)
